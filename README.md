@@ -3,7 +3,16 @@
 
 This is a research based deep learning project to compare and contrast different deep 
 learning libraries and techniques and its effect on performance metrics such as 
-training time and accuracy 
+training time and accuracy.
+
+Techniques used: 
+
+Image Augmentation
+
+Batch Normalization 
+
+Transfer Learning
+
 
 
 ## Documentation
@@ -13,6 +22,7 @@ training time and accuracy
 [TensorflowAPI](https://www.tensorflow.org/api_docs/python/tf/keras/Model)
 
 [Fast AI](https://github.com/fastai/fastai)
+
 
 
 
