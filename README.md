@@ -23,6 +23,8 @@ Transfer Learning
 
 [Fast AI](https://github.com/fastai/fastai)
 
+[pyTorch](https://github.com/pytorch/pytorch)
+
 
 
 
