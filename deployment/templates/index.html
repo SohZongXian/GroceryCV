@@ -1,0 +1,311 @@
+<!-- Tab links -->
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- <link href="style.css" rel="stylesheet" type="text/css"/> -->
+<style>
+  .tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid black;
+  }
+  
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+
+
+  .tabcontent {
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+  }
+  
+  /* Go from zero to full opacity */
+  @keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  .img-preview>div {
+    width: 100%;
+    height: 100%;
+    background-size: 256px 256px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.img-preview {
+    width: 256px;
+    height: 256px;
+    position: relative;
+    border: 5px solid #F8F8F8;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    margin-top: 1em;
+    margin-bottom: 1em;    
+}
+.img-preview2>div {
+    width: 100%;
+    height: 100%;
+    background-size: 256px 256px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.img-preview2 {
+    width: 256px;
+    height: 256px;
+    position: relative;
+    border: 5px solid #F8F8F8;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    margin-top: 1em;
+    margin-bottom: 1em;    
+}
+
+  /* input[type="file"] {
+    display: none;
+} */
+
+
+
+</style>
+</head>
+<body>
+<h2>Tabs</h2>
+<p>Click on the buttons inside the tabbed menu:</p>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+</div>
+
+<div id="London" class="tabcontent">
+  <h3>Image Classifier 1</h3>
+  <div>
+    <form id="upload-file" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+    </form>
+
+    <div class="image-section" style="display:none;">
+        <div class="img-preview">
+            <div id="imagePreview">
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
+        </div>
+    </div>
+
+    <div class="loader" style="display:none;"></div>
+
+    <h3 id="result">
+        <span> </span>
+    </h3>
+
+</div>
+</div>
+
+<div id="Paris" class="tabcontent">
+  <h3>Image Classifier 2</h3>
+  <div>
+    <form id="upload-file2" method="post" enctype="multipart/form-data">
+        <input type="file" name="file2" id="imageUpload2" accept=".png, .jpg, .jpeg">
+    </form>
+
+    <div class="image-section2" style="display:none;">
+        <div class="img-preview2">
+            <div id="imagePreview2">
+            </div>
+        </div>
+        <div>
+            <button type="button2" class="btn btn-primary btn-lg" id="btn-predict2">Predict!</button>
+        </div>
+    </div>
+
+    <div class="loader2" style="display:none;"></div>
+
+    <h3 id="result2">
+        <span> </span>
+    </h3>
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+  <iframe width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiZjU3NTE5ZWQtYWMyMS00NDY3LWJmNjItMzY4OTUxNDExYjE2IiwidCI6IjBmZWQwM2EzLTQwMmQtNDYzMy1hOGNkLThiMzA4ODIyMjUzZSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe>
+</div>
+
+<!-- <script src = "script.js" defer></script> -->
+<script>
+  function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+  
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+  
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+  
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+    
+  }
+  
+</script>
+<script>
+  $(document).ready(function () {
+    // Init
+    $('.image-section').hide();
+    $('.loader').hide();
+    $('#result').hide();
+
+    // Upload Preview
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+                $('#imagePreview').hide();
+                $('#imagePreview').fadeIn(650);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#imageUpload").change(function () {
+        $('.image-section').show();
+        $('#btn-predict').show();
+        $('#result').text('');
+        $('#result').hide();
+        readURL(this);
+    });
+
+    // Predict
+    $('#btn-predict').click(function () {
+        var form_data = new FormData($('#upload-file')[0]);
+
+        // Show loading animation
+        $(this).hide();
+        $('.loader').show();
+
+        // Make prediction by calling api /predict
+        $.ajax({
+            type: 'POST',
+            url: '/predict',
+            data: form_data,
+            contentType: false,
+            cache: false,
+            processData: false,
+            async: true,
+            success: function (data) {
+                // Get and display the result
+                $('.loader').hide();
+                $('#result').fadeIn(600);
+                $('#result').text(' Result:  ' + data);
+                console.log('Success!');
+            },
+        });
+    });
+
+});
+</script>
+
+<script>
+  $(document).ready(function () {
+    // Init
+    $('.image-section2').hide();
+    $('.loader2').hide();
+    $('#result2').hide();
+
+    // Upload Preview
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#imagePreview2').css('background-image', 'url(' + e.target.result + ')');
+                $('#imagePreview2').hide();
+                $('#imagePreview2').fadeIn(650);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#imageUpload2").change(function () {
+        $('.image-section2').show();
+        $('#btn-predict2').show();
+        $('#result2').text('');
+        $('#result2').hide();
+        readURL(this);
+    });
+
+    // Predict
+    $('#btn-predict2').click(function () {
+        var form_data = new FormData($('#upload-file')[0]);
+
+        // Show loading animation
+        $(this).hide();
+        $('.loader2').show();
+
+        // Make prediction by calling api /predict
+        $.ajax({
+            type: 'POST',
+            url: '/predict2',
+            data: form_data,
+            contentType: false,
+            cache: false,
+            processData: false,
+            async: true,
+            success: function (data) {
+                // Get and display the result
+                $('.loader2').hide();
+                $('#result2').fadeIn(600);
+                $('#result2').text(' Result:  ' + data);
+                console.log('Success!');
+            },
+        });
+    });
+
+});
+</script>
+</body>
+</html>
