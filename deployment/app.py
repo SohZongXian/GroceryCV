@@ -125,9 +125,9 @@ transformer_infer=transforms.Compose([
 ])
 
 ## loading both models
-m = torch.load('grocery_lessclass.pth')
+m = torch.load('grocery_lessclass.pth',map_location=torch.device('cpu'))
 m.eval()
-n = torch.load('grocery_moreclass.pth')
+n = torch.load('grocery_moreclass.pth',map_location=torch.device('cpu'))
 n.eval()
 
 
