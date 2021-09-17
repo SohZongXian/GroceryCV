@@ -57,7 +57,7 @@ pip install -r requirements.txt
 ```
 * This command is to check if the dependencies are successfully installed. 
 ```
-pip install -r requirements.txt
+pip list
 ```
 * Finally, run the command below to run the deployed models, and the dashboard. 
 ```
