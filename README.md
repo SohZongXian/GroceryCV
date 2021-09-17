@@ -46,7 +46,7 @@ Techniques used for model optimization:
 
 * Once set up, click on home, and launch vscode. Ensure that you have your enviromnent selected in the applications on dropdown. ![Alt](readme_images/anaconda_vscode.jpg "anaconda_vscode")
 
-* Once vscode is open, open terminal, and use the cd command to access the deployment folder. ![Alt](readme_images/terminal.PNG "terminal")
+* Once vscode is open, open terminal, and use the cd command to access the deployment folder. ![Alt](readme_images/terminal.png "terminal")
 
 
 * Below shows a list of commands to run to run the app. Run these in the vscode command prompt. 
