@@ -99,18 +99,48 @@
     display: none;
 } */
 
+h2 {
+  display: ruby-base;
+  font-size: 2.5em;
+  /* margin-top: 0.83em;
+  margin-bottom: 0.83em; */
+  margin-left: 1;
+  margin-right: 1;
+  font-weight: bold;
+}
 
+.Credits {
+    font-size: 2em;
+    color:rgb(236, 236, 243);
+    text-indent: 30px;
+    margin-right: 10;
+    font-weight: bold;
+    
+  }
+
+.fruit-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.5)) , url("https://images.unsplash.com/photo-1516594798947-e65505dbb29d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Z3JvY2VyeXxlbnwwfHwwfHw%3D&amp;auto=format&amp;fit=crop&amp;w=600&amp;q=60 600w, https://images.unsplash.com/photo-1516594798947-e65505dbb29d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Z3JvY2VyeXxlbnwwfHwwfHw%3D&amp;auto=format&amp;fit=crop&amp;w=700&amp;q=60 700w, https://images.unsplash.com/photo-1516594798947-e65505dbb29d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Z3JvY2VyeXxlbnwwfHwwfHw%3D&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=60 800w, https://images.unsplash.com/photo-1516594798947-e65505dbb29d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Z3JvY2VyeXxlbnwwfHwwfHw%3D&amp;auto=format&amp;fit=crop&amp;w=900&amp;q=60 900w");
+  background-color: #cccccc;
+  height: 170px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
 
 </style>
 </head>
 <body>
-<h2>Tabs</h2>
-<p>Click on the buttons inside the tabbed menu:</p>
+  <div class = fruit-image>
+    <h2 style="color:rgb(236, 236, 243)">Grocery Image Classification</h2>
+    <p class = "Credits" style="text-align:right;">Created by Soh Zong Xian</p>
+</div>
+
 
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'London')">London</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+  <button class="tablinks" onclick="openCity(event, 'London')">Model 1</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Model 2</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Performance Metrics</button>
 </div>
 
 <div id="London" class="tabcontent">
@@ -162,10 +192,11 @@
         <span> </span>
     </h3>
 </div>
+</div>
 
 <div id="Tokyo" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
+  <h3>Dashboard</h3>
+  <p>Created using powerBI</p>
   <iframe width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiZjU3NTE5ZWQtYWMyMS00NDY3LWJmNjItMzY4OTUxNDExYjE2IiwidCI6IjBmZWQwM2EzLTQwMmQtNDYzMy1hOGNkLThiMzA4ODIyMjUzZSIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe>
 </div>
 
@@ -280,7 +311,7 @@
 
     // Predict
     $('#btn-predict2').click(function () {
-        var form_data = new FormData($('#upload-file')[0]);
+        var form_data = new FormData($('#upload-file2')[0]);
 
         // Show loading animation
         $(this).hide();
@@ -300,7 +331,7 @@
                 $('.loader2').hide();
                 $('#result2').fadeIn(600);
                 $('#result2').text(' Result:  ' + data);
-                console.log('Success!');
+                console.log('Success2!');
             },
         });
     });
