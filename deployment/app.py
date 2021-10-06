@@ -31,6 +31,8 @@ from torch.autograd import Variable
 import torchvision
 import pathlib
 import matplotlib.pyplot as plt
+import json
+import ast
 
 import cv2 
 from PIL import Image 
@@ -40,13 +42,30 @@ import copy
 device=torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(device)
 
-## getting respective classes
-train_path='C:/Users/user/Documents/GitHub/GroceryCV/GroceryStoreDataset-master/dataset_pt/train'
-train_path2='C:/Users/user/Documents/GitHub/GroceryCV/GroceryStoreDataset-master/dataset/train'
-root=pathlib.Path(train_path)
-classes=sorted([j.name.split('/')[-1] for j in root.iterdir()]) ## less class 
-root2=pathlib.Path(train_path2)
-classes2=sorted([i.name.split('/')[-1] for i in root2.iterdir()]) ## more class 
+## getting respective classes from folder structure
+# train_path='C:/Users/user/Documents/GitHub/GroceryCV/GroceryStoreDataset-master/dataset_pt/train'
+# train_path2='C:/Users/user/Documents/GitHub/GroceryCV/GroceryStoreDataset-master/dataset/train'
+# root=pathlib.Path(train_path)
+# classes=sorted([j.name.split('/')[-1] for j in root.iterdir()]) ## less class 
+# root2=pathlib.Path(train_path2)
+# classes2=sorted([i.name.split('/')[-1] for i in root2.iterdir()]) ## more class 
+# classes_json= json.dumps(classes)## less class 
+# classes2_json= json.dumps(classes2)## more class
+# with open('less_class.txt', 'w') as outfile:
+#     json.dump(classes_json, outfile)
+# with open('more_class.txt', 'w') as outfile:
+#     json.dump(classes2_json, outfile)
+
+## load classes array from json
+with open('less_class.json') as json_file:
+    classes = json.load(json_file)
+
+with open('more_class.json') as json_file:
+    classes2 = json.load(json_file)
+
+## convert to array
+classes = ast.literal_eval(classes)
+classes2 = ast.literal_eval(classes2)
 
 ## pytorch base model architecture
 class ConvNet(nn.Module):
