@@ -1,4 +1,5 @@
 ##Author: https://github.com/SohZongXian/GroceryCV
+## If any issues faced in running the web application, please check out the github repo for more detailed readme. 
 
 from __future__ import division, print_function
 from flask import Flask, redirect, url_for, request, render_template
