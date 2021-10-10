@@ -1,3 +1,5 @@
+##Author: https://github.com/SohZongXian/GroceryCV
+
 from __future__ import division, print_function
 from flask import Flask, redirect, url_for, request, render_template
 import requests
